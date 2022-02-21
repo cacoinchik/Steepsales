@@ -1,0 +1,26 @@
+﻿@using Steepsales.Models.EntityFramework
+@model IQueryable<ProductItem>
+
+<article id="main">
+     <header>
+        <h2>Магазин</h2>
+        <p>Каталог товаров</p>
+    </header>
+    <section class="wrapper style5">
+    <div class="row mt-5" style="text-align:center">
+        @if (Model.Any())
+        {
+            @foreach(ProductItem item in Model)
+            {
+                <div class="col-lg-4">
+                    <a asp-area="" asp-controller="Shop" asp-action="Catalog" asp-route-id="@item.Id">
+                        <img src="~/images/@item.TitleImage" alt="" height=500 width=500/>
+                    </a>
+                    <h4>@item.Firm @item.Name</h4>
+                    <p>@item.Price.ToString("c")</p>
+                </div>
+            }
+        }
+        </div>
+        </section>
+</article>

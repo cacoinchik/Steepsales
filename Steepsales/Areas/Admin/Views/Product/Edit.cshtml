@@ -1,0 +1,83 @@
+﻿@using Steepsales.Models.EntityFramework
+@model ProductItem
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<script src="~/js/ckeditor/ckeditor.js"></script>
+<title>Редактирование товара</title>
+@await Html.PartialAsync("CssPartial")
+<div>
+    <h2 style="text-align:center">Редактирование товара</h2>
+    <div>
+        <form asp-area="Admin" asp-controller="Product" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="TitleImage" />
+
+            <div asp-validation-summary="All"></div>
+            <div>
+                <h5>Фирма</h5>
+                <input asp-for="Firm" />
+                <span asp-validation-for="Firm"></span>
+            </div>
+            <br />
+            <div>
+                <h5>Модель</h5>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <br />
+            <div>
+                <h5>Краткое описание товара</h5>
+                <input asp-for="Description" />
+                <span asp-validation-for="Description"></span>
+            </div>
+            <br />
+            <div>
+                <h5>Полное описание</h5>
+                <textarea asp-for="Text"></textarea>
+                <span asp-validation-for="Text"></span>
+            </div>
+            <br />
+            <div>
+                <h5>Стоимость</h5>
+                <textarea asp-for="Price"></textarea>
+                <span asp-validation-for="Price"></span>
+            </div>
+            <br />
+            <div>
+                <h5>Фото</h5>
+                <input type="file" name="titleImageFile" id="titleImageFile" />
+                <div>
+                    <img src="~/images/@Model.TitleImage" />
+                </div>
+            </div>
+            <br />
+            <div>
+                <label asp-for="MetaTitle"></label>
+                <input asp-for="MetaTitle" />
+                <span asp-validation-for="MetaTitle"></span>
+            </div>
+            <br />
+            <div>
+                <label asp-for="MetaDescription"></label>
+                <input asp-for="MetaDescription" />
+                <span asp-validation-for="MetaDescription"></span>
+            </div>
+            <br />
+            <div>
+                <label asp-for="MetaKeywords"></label>
+                <input asp-for="MetaKeywords" />
+                <span asp-validation-for="MetaKeywords"></span>
+            </div>
+            <br />
+            <div style="text-align:center"><input style="text-align:center" type="submit" value="Сохранить" /></div>
+        </form>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Text)');
+        newCKEdit.updateElement();
+    }
+</script>

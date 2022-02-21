@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+@using Steepsales.Models.EntityFramework
+@model ProductItem
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.Description = Model.MetaDescription;
+    ViewBag.Keywords = Model.MetaKeywords;
+}
+@await Html.PartialAsync("CssPartial")
+<title>@Model.MetaTitle</title>
+<article id="main">
+    <header>
+         @await Html.PartialAsync("MetatagsPartial")
+         @await Html.PartialAsync("CssPartial")
+         @await Html.PartialAsync("HeaderPartial")
+         @await Html.PartialAsync("ScriptsPartial")
+        <h2>@Model.Firm   @Model.Name</h2>
+        <p>@Model.Description</p>
+    </header>
+    <section class="spotlight">
+         <div class="image"><img src="~/images/@Model.TitleImage"/></div><div class="content">
+            <h3>
+                @Html.Raw(Model.Text)<br />
+                @Model.Price.ToString("c")
+            </h3>
+            <a class="button fit primary" asp-controller="Cart" asp-action="addToCart" asp-route-id="@Model.Id">Добавить в корзину</a>
+        </div>
+    </section>
+</article>
+

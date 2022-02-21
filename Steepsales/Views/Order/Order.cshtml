@@ -1,0 +1,58 @@
+﻿@using Steepsales.Models.EntityFramework
+@model Order
+@{
+    Layout = null;
+}
+<head>
+    <title>Оформление заказа</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	@await Html.PartialAsync("CssLoginPartial")
+</head>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <h2 style="text-align:center">Оформление заказа</h2> <br/>
+            <form asp-action="Order" method="post">
+                <div>
+                    <h4>Ваше имя</h4>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input asp-for="name" class="input100" />
+                        <span asp-validation-for="name" class="focus-input100"></span>
+                    </div>
+                </div>
+                 <div>
+                    <h4>Ваша фамилия</h4>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input asp-for="surname" class="input100"/>
+                        <span asp-validation-for="surname" class="focus-input100"></span>
+                    </div>
+                </div>
+                 <div>
+                    <h4>Ваш адрес</h4>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input asp-for="adress" class="input100"/>
+                        <span asp-validation-for="adress" class="focus-input100"></span>
+                    </div>
+                </div>
+                 <div>
+                    <h4>Ваш номер телефона</h4>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input asp-for="phone" class="input100"/>
+                        <span asp-validation-for="phone" class="focus-input100"></span>
+                    </div>
+                </div>
+                 <div>
+                    <h4>Ваша почта</h4>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input asp-for="email" class="input100"/>
+                        <span asp-validation-for="email" class="focus-input100"></span>
+                    </div>
+                </div>
+                <div class="container-login100-form-btn m-t-17">
+                    <button type="submit" class="login100-form-btn">Завершить заказ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
