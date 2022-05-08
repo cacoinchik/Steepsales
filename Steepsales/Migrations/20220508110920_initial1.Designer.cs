@@ -10,8 +10,8 @@ using Steepsales.Models.EntityFramework;
 namespace Steepsales.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211205182508__initial")]
-    partial class _initial
+    [Migration("20220508110920_initial1")]
+    partial class initial1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace Steepsales.Migrations
                         new
                         {
                             Id = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
-                            ConcurrencyStamp = "52587ec3-c06e-4d5c-83ab-ce2359576fa4",
+                            ConcurrencyStamp = "470d6edb-0123-4733-a2d5-d2177aadf07f",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -150,13 +150,13 @@ namespace Steepsales.Migrations
                         {
                             Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "739b05e4-2478-4f92-a393-be49721ee519",
+                            ConcurrencyStamp = "47f0f645-53a7-460d-8377-028e45b29fd7",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEO+fMF+C8k6IB4UurC+WzHElnmouhUMG1qRhrQL91qsvqEWS2wj95oLirag+7xLfWQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKlZGD3odqZ3bzmnREH6w1kLgQZeFV182by9mO2wM3ie3v/L9y4dSr5acfw2c03w3g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -273,6 +273,24 @@ namespace Steepsales.Migrations
                     b.ToTable("CartItems");
                 });
 
+            modelBuilder.Entity("Steepsales.Models.EntityFramework.Firm", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Firms");
+                });
+
             modelBuilder.Entity("Steepsales.Models.EntityFramework.Order", b =>
                 {
                     b.Property<int>("id")
@@ -344,6 +362,9 @@ namespace Steepsales.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("FirmId")
+                        .HasColumnType("int");
+
                     b.Property<string>("MetaDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -366,9 +387,27 @@ namespace Steepsales.Migrations
                     b.Property<string>("TitleImage")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("ProductItems");
+                });
+
+            modelBuilder.Entity("Steepsales.Models.EntityFramework.Type", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Types");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

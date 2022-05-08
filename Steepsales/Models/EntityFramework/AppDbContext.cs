@@ -11,6 +11,8 @@ namespace Steepsales.Models.EntityFramework
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Firm> Firms { get; set; }
+        public DbSet<Type> Types { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
