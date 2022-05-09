@@ -9,5 +9,6 @@ namespace Steepsales.Models.EntityFramework
         ProductItem GetProductItemById(Guid id);
         void SaveProductItem(ProductItem entity);
         void DeleteProductItem(Guid id);
+        
     }
 }
