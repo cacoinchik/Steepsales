@@ -23,34 +23,5 @@ namespace Steepsales.Controllers
             }
             return View(db.ProductItems.ToList());
         }
-        [HttpPost]
-        public IActionResult Select(int param)
-        {
-            if (param == 1)
-            {
-                return View("Catalog", db.ProductItems.Where(x => x.FirmId == 1).ToList());
-            }
-            else if(param == 2)
-            {
-                return View("Catalog", db.ProductItems.Where(x => x.FirmId == 2).ToList());
-            }
-            else if (param == 3)
-            {
-                return View("Catalog", db.ProductItems.Where(x => x.FirmId == 3).ToList());
-            }
-            else if (param == 4)
-            {
-                return View("Catalog", db.ProductItems.Where(x => x.TypeId == 1).ToList());
-            }
-            else if (param == 5)
-            {
-                return View("Catalog", db.ProductItems.Where(x => x.TypeId == 2).ToList());
-            }
-            else if (param == 6)
-            {
-                return View("Catalog", db.ProductItems.Where(x => x.TypeId == 3).ToList());
-            }
-            return View("Catalog",db.ProductItems.ToList());
-        }
     }
 }
