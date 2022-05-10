@@ -8,32 +8,44 @@
     </header>
     <section class="wrapper style5">
         <div style="margin-left:25px">
-        <ul class="actions fit">
-            <li>
-                <a class="button primary fit">Adidas</a>
-            </li>
-            <li>
-                <a class="button primary fit">Nike</a>
-            </li>
-            <li>
-                <a class="button primary fit">Puma</a>
-            </li>
-            <li>
-                <a class="button primary fit">Adidas</a>
-            </li>
-            <li>
-                <a class="button primary fit">Nike</a>
-            </li>
-            <li>
-                <a class="button primary fit">Puma</a>
-            </li>
-        </ul>
+            <ul class="actions fit">
+                <li>
+                    <form method="post">
+                        <input type="submit" class="button primary fit" value="Adidas" />
+                    </form>
+                </li>
+                <li>
+                    <form method="post">
+                        <input type="submit" class="button primary fit" value="Nike" />
+                    </form>
+                </li>
+                <li>
+                    <form method="post">
+                        <input type="submit" class="button primary fit" value="Puma" />
+                    </form>
+                </li>
+                <li>
+                    <form method="post">
+                        <input type="submit" class="button primary fit" value="Повседневные" />
+                    </form>
+                </li>
+                <li>
+                    <form method="post">
+                        <input type="submit" class="button primary fit" value="Для фитнеса" />
+                    </form>
+                </li>
+                <li>
+                    <form method="post">
+                        <input type="submit" class="button primary fit" value="Беговые" />
+                    </form>
+                </li>
+            </ul>
         </div>
         <div style="margin-left:150px;">
             <div class="row mt-5" style="text-align:center">
                 @if (Model.Any())
                 {
-                    @foreach (ProductItem item in Model)
+                    @foreach (var item in Model)
                     {
                         <div class="col-lg-4">
                             <a asp-area="" asp-controller="Shop" asp-action="Catalog" asp-route-id="@item.Id">
