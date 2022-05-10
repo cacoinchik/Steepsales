@@ -5,19 +5,22 @@
 }
 @await Html.PartialAsync("CssPartial")
 <div>
-    @foreach(var el in Model.cart.CartItems)
+    @foreach (var el in Model.cart.CartItems)
     {
-        <div style="text-align:center">
-            <div class="image"><img src="~/images/@el.productItem.TitleImage"/></div> <br/>
-            <b>Товар: </b> @el.productItem.Name <br/>
-            <b>Цена: </b> @el.productItem.Price.ToString("c")
-        </div>
+        <section class="spotlight">
+            <div class="image"><img src="~/images/@el.productItem.TitleImage" /></div><div class="content">
+                <h3>
+                    <b>Товар: </b> @el.productItem.Name <br />
+                    <b>Цена: </b> @el.productItem.Price.ToString("c")
+                </h3>
+            </div>
+        </section>
     }
     <hr />
     <div style="text-align:left">
-            <a asp-controller="Order" asp-action="Order" class="button fit primary">Оплатить</a>
+        <a asp-controller="Order" asp-action="Order" class="button fit primary">Оплатить</a>
     </div>
     <div style="text-align:right">
-            <a asp-controller="Shop" asp-action="Catalog" class="button fit primary">Вернуться в магазин</a> <br />
+        <a asp-controller="Shop" asp-action="Catalog" class="button fit primary">Вернуться в магазин</a> <br />
     </div>
 </div>
