@@ -6,11 +6,11 @@ using System.Linq;
 
 namespace Steepsales.Controllers
 {
-    public class ShopController : Controller 
+    public class ShopController : Controller
     {
         private readonly DataManager dataManager;
         private readonly AppDbContext db;
-        public ShopController(DataManager dataManager,AppDbContext db)
+        public ShopController(DataManager dataManager, AppDbContext db)
         {
             this.dataManager = dataManager;
             this.db = db;
@@ -30,7 +30,7 @@ namespace Steepsales.Controllers
             {
                 return View("Catalog", db.ProductItems.Where(x => x.FirmId == 1).ToList());
             }
-            else if(param == 2)
+            else if (param == 2)
             {
                 return View("Catalog", db.ProductItems.Where(x => x.FirmId == 2).ToList());
             }
@@ -50,7 +50,7 @@ namespace Steepsales.Controllers
             {
                 return View("Catalog", db.ProductItems.Where(x => x.TypeId == 3).ToList());
             }
-            return View("Catalog",db.ProductItems.ToList());
+            return View("Catalog", db.ProductItems.ToList());
         }
     }
 }
