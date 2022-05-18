@@ -1,0 +1,60 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Steepsales.Areas.Admin.Controllers
+@model OrderController.ViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Заказы</title>
+</head>
+@await Html.PartialAsync("CssPartial")
+<body>
+    <div class="table-wrapper">
+        <h3 style="text-align:center">Заказы</h3>
+        <table class="alt">
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Адрес</th>
+                <th>Телефон</th>
+                <th>Почта</th>
+                <th>Дата заказа</th>
+            </tr>
+            @foreach (var item in Model.Orders)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.surname</td>
+                    <td>@item.adress</td>
+                    <td>@item.phone</td>
+                    <td>@item.email</td>
+                    <td>@item.ordertime</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br />
+    <div class="table-wrapper">
+        <h3 style="text-align:center">Детали заказов</h3>
+        <table class="alt">
+            <tr>
+                <th>ID заказчика</th>
+                <th>ID товара</th>
+                <th>Цена</th>
+            </tr>
+            @foreach (var item in Model.Details)
+            {
+                <tr>
+                    <td>@item.orderId</td>
+                    <td>@item.ProductId</td>
+                    <td>@item.price</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="div-box" style="text-align:right">
+        <a  class="button primary" asp-area="Admin" asp-controller="Home" asp-action="Index">Назад</a>
+    </div>
+</body>
+</html>

@@ -3,6 +3,10 @@
 @model IQueryable<ProductItem>
 <div>
     <h2 style="text-align:center">Панель администратора</h2>
+    <h3 style="text-align:center">Заказы</h3>
+    <div class="div-box" style="text-align:center">
+        <a asp-area="Admin" asp-controller="Order" asp-action="Show" asp-route-id="" class="button primary">Просмотреть заказы</a>
+    </div>
     <div>
         <h3 style="text-align:center">Товары</h3>
         <div class="div-box" style="text-align:center">
@@ -17,19 +21,21 @@
                         <li style="text-align:center">
                             <img src="~/images/@item.TitleImage" height=250 width=250 />
                             <div style="text-align:center">
+                                <a asp-area="" asp-controller="Shop" asp-action="Catalog" asp-route-id="@item.Id"> @($"{item.Name}") </a>
+                            </div>
+                            <div style="text-align:center">
                                 <a asp-area="Admin" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
                             </div>
                             <div style="text-align:center">
-                            <form style="display: inline-block;" id="form-@item.Id" asp-area="Admin" asp-controller="Product" asp-action="Delete" method="post">
-                                <input type="hidden" name="id" value="@item.Id">
-                                <a href="#" onclick="document.getElementById('form-@item.Id').submit();">Удалить товар</a>
-                            </form>
+                                <form style="display: inline-block;" id="form-@item.Id" asp-area="Admin" asp-controller="Product" asp-action="Delete" method="post">
+                                    <input type="hidden" name="id" value="@item.Id">
+                                    <a href="#" onclick="document.getElementById('form-@item.Id').submit();">
+                                        <br/>
+                                        Удалить товар
+                                    </a>
+                                </form>
                             </div>
-                            <div style="text-align:center">
-                            <a asp-area="" asp-controller="Shop" asp-action="Catalog" asp-route-id="@item.Id">
-                                @($"{item.Name}")
-                            </a>
-                            </div>
+
                         </li>
                     }
                 </ul>
