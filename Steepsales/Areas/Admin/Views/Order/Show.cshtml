@@ -41,6 +41,8 @@
             <tr>
                 <th>ID заказчика</th>
                 <th>ID товара</th>
+                <th>Фирма</th>
+                <th>Название</th>
                 <th>Цена</th>
             </tr>
             @foreach (var item in Model.Details)
@@ -48,6 +50,8 @@
                 <tr>
                     <td>@item.orderId</td>
                     <td>@item.ProductId</td>
+                    <td>@item.orderFirm</td>
+                    <td>@item.orderName</td>
                     <td>@item.price</td>
                 </tr>
             }

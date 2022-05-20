@@ -22,6 +22,8 @@ namespace Steepsales.Models.EntityFramework
                 var orderDetail = new OrderDetail()
                 {
                     ProductId = el.productItem.Id,
+                    orderName = el.productItem.Name,
+                    orderFirm = el.productItem.Firm,
                     orderId = order.id,
                     price = el.productItem.Price
                 };

@@ -10,6 +10,8 @@ namespace Steepsales.Models.EntityFramework
     {
         public int id { get; set; }
         public int orderId { get; set; }
+        public string orderName { get; set; }
+        public string orderFirm { get; set; }
         public Guid ProductId { get; set; }
         public decimal price { get; set; }
         public virtual ProductItem ProductItem { get; set; }
